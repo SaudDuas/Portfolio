@@ -64,7 +64,7 @@ elif page == "Projects":
     st.write("""**AI-Driven Solutions for Law Enforcement**
     - Led a cross-functional team in the Absherthon 2024 competition, designing AI-driven solutions for law enforcement.
     """)
-    st.image("st_pics/pic2.webp", caption="AI-Driven Solutions for Law Enforcement", use_column_width=True)
+    st.image("pic2.webp", caption="AI-Driven Solutions for Law Enforcement", use_column_width=True)
 
 elif page == "Certifications":
     st.markdown("<h2 id='certifications'>🎖️ Certifications</h2>", unsafe_allow_html=True)
