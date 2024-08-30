@@ -80,6 +80,7 @@ elif page == "Certifications":
 elif page == "Contact":
     st.markdown("<h2 id='contact'>📬 Contact</h2>", unsafe_allow_html=True)
     st.write("If you're interested in connecting, please fill out the form below:")
+
     contact_form = st.form(key='contact_form')
     name = contact_form.text_input("Your Name")
     email = contact_form.text_input("Your Email")
@@ -87,4 +88,18 @@ elif page == "Contact":
     submit_button = contact_form.form_submit_button(label='Submit')
 
     if submit_button:
+        # Sending form data to FormSubmit
         st.write(f"Thank you {name}! Your message has been sent.")
+        st.markdown(f"""
+        <form action="https://formsubmit.co/saud.bin.fawaz@gmail.com" method="POST" style="display:none;">
+            <input type="hidden" name="_subject" value="New contact form submission from {name}">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="name" value="{name}">
+            <input type="hidden" name="email" value="{email}">
+            <input type="hidden" name="message" value="{message}">
+            <input type="submit" value="Send">
+        </form>
+        <script>
+        document.forms[0].submit(); // Automatically submit the form
+        </script>
+        """, unsafe_allow_html=True)
