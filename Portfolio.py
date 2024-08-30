@@ -88,10 +88,9 @@ elif page == "Contact":
     submit_button = contact_form.form_submit_button(label='Submit')
 
     if submit_button:
-        # Sending form data to FormSubmit
         st.write(f"Thank you {name}! Your message has been sent.")
         st.markdown(f"""
-        <form action="https://formsubmit.co/saud.bin.fawaz@gmail.com" method="POST">
+        <form action="https://formsubmit.co/saud.bin.fawaz@gmail.com" method="POST" style="display:none;">
             <input type="hidden" name="_subject" value="New contact form submission from {name}">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="name" value="{name}">
@@ -100,6 +99,6 @@ elif page == "Contact":
             <input type="submit" value="Send">
         </form>
         <script>
-        document.forms[0].submit(); // Automatically submit the form
+        document.forms[0].submit();
         </script>
         """, unsafe_allow_html=True)
