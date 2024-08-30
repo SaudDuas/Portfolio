@@ -1,6 +1,8 @@
 import streamlit as st
 from streamlit_navigation_bar import st_navbar
 
+st.set_page_config(page_title="My Portfolio", page_icon="favicon-32x32.png")
+
 # Define your navigation bar
 page = st_navbar(["Home", "Experience", "Education", "Skills", "Projects", "Certifications", "Contact"])
 
