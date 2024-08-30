@@ -1,6 +1,44 @@
 import streamlit as st
 from streamlit_navigation_bar import st_navbar
 
+# Set page configuration including favicon
+st.set_page_config(page_title="My Portfolio", page_icon="favicon.png")
+
+# Add custom CSS for smooth scrolling and mobile-responsive navbar
+st.markdown("""
+    <style>
+    /* Default navbar styles */
+    nav {
+        background-color: #0e76a8;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav a {
+        margin: 10px;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Mobile-specific adjustments */
+    @media screen and (max-width: 600px) {
+        nav {
+            text-align: left;
+            padding: 15px;
+        }
+
+        nav a {
+            display: block;
+            margin: 5px 0;
+        }
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # Define your navigation bar
 page = st_navbar(["Home", "Experience", "Education", "Skills", "Projects", "Certifications", "Contact"])
 
@@ -31,7 +69,6 @@ elif page == "Experience":
     - **Foodics UX Designer**: Delivered insightful business recommendations through user experience testing and customer needs analysis, driving better user retention.
     """)
 
-
 elif page == "Education":
     st.markdown("<h2 id='education'>🎓 Education</h2>", unsafe_allow_html=True)
     st.write("""
@@ -51,7 +88,6 @@ elif page == "Skills":
     - **Management Consulting**: Data-Driven Decision Making, Strategic Analysis
     - **Tools**: Excel, SQL, Power BI, Tableau
     """)
-
 
 elif page == "Projects":
     st.markdown("<h2 id='projects'>🚀 Projects</h2>", unsafe_allow_html=True)
