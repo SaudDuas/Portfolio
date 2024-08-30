@@ -59,7 +59,7 @@ elif page == "Projects":
     **Trading Bot**
     - Developed a trading bot to analyze the US stock market, providing daily buy/sell recommendations with high accuracy.
     """)
-    st.image("st_pics/pic1.webp", caption="Trading Bot Project", use_column_width=True)
+    st.image("pic1.webp", caption="Trading Bot Project", use_column_width=True)
 
     st.write("""**AI-Driven Solutions for Law Enforcement**
     - Led a cross-functional team in the Absherthon 2024 competition, designing AI-driven solutions for law enforcement.
