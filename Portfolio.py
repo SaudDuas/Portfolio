@@ -173,7 +173,7 @@ elif page == "Certifications":
     - **McKinsey Forward Program** – McKinsey & Company
     """)
 
-elif page == "Contact":
+if page == "Contact":
     st.markdown("<h2 id='contact'>📬 Contact</h2>", unsafe_allow_html=True)
     st.write("If you're interested in connecting, please fill out the form below:")
 
@@ -184,10 +184,9 @@ elif page == "Contact":
     submit_button = contact_form.form_submit_button(label='Submit')
 
     if submit_button:
-        # Sending form data to FormSubmit
         st.write(f"Thank you {name}! Your message has been sent.")
         st.markdown(f"""
-        <form action="798ca3aac81c91f8fe69bfb3b6fcada0" method="POST" style="display:none;">
+        <form action="https://formsubmit.co/798ca3aac81c91f8fe69bfb3b6fcada0" method="POST" style="display:none;">
             <input type="hidden" name="_subject" value="New contact form submission from {name}">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="name" value="{name}">
