@@ -43,29 +43,30 @@ elif page == "Education":
 elif page == "Skills":
     st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
 
-    # Custom CSS for better icon and text alignment
+    # Custom CSS for centering the category icon and better layout for skill icons
     st.markdown("""
     <style>
+    .center-icon {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
     .skills-container {
         display: flex;
         justify-content: center;
         width: 100%;
         flex-wrap: wrap;
     }
-    .skill-category {
-        padding: 20px;
-        text-align: center;
-    }
-    .skill-icon {
-        width: 60px;
-        height: 60px;
-        margin-right: 20px;
-    }
     .skill-row {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-bottom: 15px;
+    }
+    .skill-icon {
+        width: 60px;
+        height: 60px;
+        margin-right: 20px;
     }
     .skill-text {
         font-size: 20px;
@@ -85,27 +86,27 @@ elif page == "Skills":
     # Tabs with icons
     tabs = st.tabs(["Programming", "Data Visualization", "Machine Learning", "Software Development"])
 
-    # Tab content with improved icon and text styling
+    # Tab content with category icon in the center
     with tabs[0]:
-        st.image(icons["Programming"], width=60)
+        st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Programming"]), unsafe_allow_html=True)
         st.write("Skills: Python, Java, C++.")
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/python.png" class="skill-icon"><span class="skill-text">Python</span></div>', unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/java-coffee-cup-logo.png" class="skill-icon"><span class="skill-text">Java</span></div>', unsafe_allow_html=True)
 
     with tabs[1]:
-        st.image(icons["Data Visualization"], width=60)
+        st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Data Visualization"]), unsafe_allow_html=True)
         st.write("Tools: Tableau, Power BI.")
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/tableau-software.png" class="skill-icon"><span class="skill-text">Tableau</span></div>', unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/microsoft-power-bi.png" class="skill-icon"><span class="skill-text">Power BI</span></div>', unsafe_allow_html=True)
 
     with tabs[2]:
-        st.image(icons["Machine Learning"], width=60)
+        st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Machine Learning"]), unsafe_allow_html=True)
         st.write("Frameworks: TensorFlow, PyTorch.")
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/tensorflow.png" class="skill-icon"><span class="skill-text">TensorFlow</span></div>', unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/pytorch.png" class="skill-icon"><span class="skill-text">PyTorch</span></div>', unsafe_allow_html=True)
 
     with tabs[3]:
-        st.image(icons["Software Development"], width=60)
+        st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Software Development"]), unsafe_allow_html=True)
         st.write("Technologies: Git, Docker, CI/CD.")
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/git.png" class="skill-icon"><span class="skill-text">Git</span></div>', unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/docker.png" class="skill-icon"><span class="skill-text">Docker</span></div>', unsafe_allow_html=True)
