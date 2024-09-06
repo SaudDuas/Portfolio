@@ -48,12 +48,39 @@ elif page == "Education":
 elif page == "Skills":
     st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
 
-    # Use Shadcn UI Tabs for skills
+    # Apply custom CSS for responsive and improved tab styles
+    st.markdown("""
+    <style>
+    .tabs-container {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .tab-button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #f0f0f0;
+        font-size: 16px;
+        border-radius: 8px;
+        margin: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .tab-button:hover {
+        background-color: #ddd;
+    }
+    .tab-button-selected {
+        background-color: #ccc;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Add tabs with improved styles
     selected_tab = ui.tabs(
         options=["Programming", "Data Visualization", "Machine Learning", "Software Development"],
         key="skills_tabs"
     )
-
     # Display dynamic content based on the selected skill
     if selected_tab == "Programming":
         st.write("Skills: Python, Java, C++.")
@@ -64,8 +91,9 @@ elif page == "Skills":
     elif selected_tab == "Software Development":
         st.write("Technologies: Git, Docker, CI/CD.")
 
-    # Show which tab is selected
+    # Show the selected tab
     st.write(f"You selected: {selected_tab}")
+
 
 elif page == "Projects":
     st.markdown("<h2 id='projects'>🚀 Projects</h2>", unsafe_allow_html=True)
