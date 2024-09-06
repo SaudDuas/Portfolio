@@ -76,7 +76,7 @@ elif page == "Experience and Education":
     - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
     """)
     
-elif page == "Skills":
+elif page == "Skills and Certifications":
     st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
 
     # Custom CSS for centering the category icon and better layout for skill icons
@@ -143,24 +143,7 @@ elif page == "Skills":
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/git.png" class="skill-icon"><span class="skill-text">Git</span></div>', unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/docker.png" class="skill-icon"><span class="skill-text">Docker</span></div>', unsafe_allow_html=True)
 
-
-elif page == "Projects":
-    st.markdown("<h2 id='projects'>🚀 Projects</h2>", unsafe_allow_html=True)
-    
-    # Use Shadcn card component for project descriptions
-    with ui.card(key="trading_bot_card"):
-        st.write("**Trading Bot**")
-        st.write("Developed a trading bot to analyze the US stock market, providing daily buy/sell recommendations with high accuracy.")
-        st.image("pic1.webp", caption="Trading Bot Project", use_column_width=True)
-        ui.button(text="More Details", key="trading_bot_btn")
-
-    with ui.card(key="law_enforcement_card"):
-        st.write("**AI-Driven Solutions for Law Enforcement**")
-        st.write("Led a cross-functional team in the Absherthon 2024 competition, designing AI-driven solutions for law enforcement.")
-        st.image("pic2.webp", caption="AI-Driven Solutions for Law Enforcement", use_column_width=True)
-        ui.button(text="More Details", key="law_enforcement_btn")
-
-elif page == "Certifications":
+    # Add Certifications Section
     st.markdown("<h2 id='certifications'>🎖️ Certifications</h2>", unsafe_allow_html=True)
     st.write("""
     - **Introduction to AI** – KAUST/SDAIA
@@ -168,6 +151,7 @@ elif page == "Certifications":
     - **Data Analytics Certificate** – Google
     - **McKinsey Forward Program** – McKinsey & Company
     """)
+
 
 if page == "Contact":
     st.markdown("<h2 id='contact'>📬 Contact</h2>", unsafe_allow_html=True)
