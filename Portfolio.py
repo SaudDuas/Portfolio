@@ -77,6 +77,7 @@ elif page == "Experience and Education":
     """)
     
 elif page == "Skills and Certifications":
+    st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
     # Custom CSS for centering the category icon and better layout for skill icons
     st.markdown("""
     <style>
@@ -119,8 +120,6 @@ elif page == "Skills and Certifications":
 
     # Tabs with icons
     tabs = st.tabs(["Programming", "Data Visualization", "Machine Learning", "Software Development"])
-
-    st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
     # Add Certifications Section
     st.markdown("<h2 id='certifications'>🎖️ Certifications</h2>", unsafe_allow_html=True)
     st.write("""
