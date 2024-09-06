@@ -21,20 +21,21 @@ if page == "Home":
 elif page == "Experience":
     st.markdown("<h2 id='experience'>💼 Experience</h2>", unsafe_allow_html=True)
 
-    # Use Shadcn card component for experiences
+    # Custom CSS for card styling
     st.markdown("""
     <style>
     .card {
-        background-color: #222;
+        background-color: #2a2a2a;
         padding: 20px;
         border-radius: 10px;
         margin-bottom: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: white;
     }
     .button {
         background-color: #0e76a8;
         color: white;
-        padding: 10px 15px;
+        padding: 10px 20px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -60,6 +61,15 @@ elif page == "Experience":
     st.write("Led a cross-functional team to design AI-driven solutions for law enforcement, improving suspect identification processes.")
     st.markdown("<button class='button'>View Details</button>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
+
+elif page == "Education":
+    st.markdown("<h2 id='education'>🎓 Education</h2>", unsafe_allow_html=True)
+    st.write("""
+    **Bachelor of Engineering (B.Eng.) in Computer Engineering**
+    - King Abdulaziz University, Jeddah
+    - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
+    """)
+
 
 elif page == "Education":
     st.markdown("<h2 id='education'>🎓 Education</h2>", unsafe_allow_html=True)
