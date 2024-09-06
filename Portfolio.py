@@ -43,14 +43,22 @@ elif page == "Education":
 elif page == "Skills":
     st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
 
-    # Apply custom CSS for responsive and improved tab styles
+    # Custom CSS for icons and tabs
     st.markdown("""
     <style>
-    .tabs-container {
+    .skills-container {
         display: flex;
         justify-content: space-around;
         width: 100%;
         flex-wrap: wrap;
+    }
+    .skill-category {
+        padding: 10px;
+        text-align: center;
+    }
+    .skill-icon {
+        width: 40px;
+        height: 40px;
     }
     .tab-button {
         padding: 10px 20px;
@@ -71,20 +79,38 @@ elif page == "Skills":
     </style>
     """, unsafe_allow_html=True)
 
-    # Add tabs with improved styles
-    selected_tab = ui.tabs(
+    # Example icons (replace with actual URLs or local images)
+    icons = {
+        "Programming": "https://img.icons8.com/color/48/000000/programming.png",
+        "Data Visualization": "https://img.icons8.com/color/48/000000/combo-chart.png",
+        "Machine Learning": "https://img.icons8.com/color/48/000000/machine-learning.png",
+        "Software Development": "https://img.icons8.com/color/48/000000/code.png"
+    }
+
+    # Tabs with icons
+    selected_tab = st.tabs(
         options=["Programming", "Data Visualization", "Machine Learning", "Software Development"],
         key="skills_tabs"
     )
-    # Display dynamic content based on the selected skill
+
+    # Add corresponding images/icons to each tab
     if selected_tab == "Programming":
+        st.image(icons["Programming"], width=40)
         st.write("Skills: Python, Java, C++.")
+        st.image("https://img.icons8.com/color/48/000000/python.png", width=20, caption="Python")
+        st.image("https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png", width=20, caption="Java")
     elif selected_tab == "Data Visualization":
+        st.image(icons["Data Visualization"], width=40)
         st.write("Tools: Tableau, Power BI.")
     elif selected_tab == "Machine Learning":
+        st.image(icons["Machine Learning"], width=40)
         st.write("Frameworks: TensorFlow, PyTorch.")
     elif selected_tab == "Software Development":
-        st.write("Technologies: Git, Docker.")
+        st.image(icons["Software Development"], width=40)
+        st.write("Technologies: Git, Docker, CI/CD.")
+
+    st.write(f"You selected: {selected_tab}")
+
 
 elif page == "Projects":
     st.markdown("<h2 id='projects'>🚀 Projects</h2>", unsafe_allow_html=True)
