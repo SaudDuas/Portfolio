@@ -47,8 +47,17 @@ elif page == "Education":
 
 elif page == "Skills":
     st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
-    ui.radio_group(options=["Programming", "Data Visualization", "Machine Learning", "Software Development"],
-                   label="Explore My Skills", key="skills_radio")
+    
+    # Correct Shadcn UI radio group usage
+    selected_skill = ui.radio_group(
+        options=["Programming", "Data Visualization", "Machine Learning", "Software Development"],
+        label="Explore My Skills", 
+        key="skills_radio"
+    )
+    
+    # Display information based on the selected skill
+    st.write(f"You selected: {selected_skill}")
+
 
 elif page == "Projects":
     st.markdown("<h2 id='projects'>🚀 Projects</h2>", unsafe_allow_html=True)
