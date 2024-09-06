@@ -20,17 +20,46 @@ if page == "Home":
 
 elif page == "Experience":
     st.markdown("<h2 id='experience'>💼 Experience</h2>", unsafe_allow_html=True)
-    
-    # Use Shadcn card component for experiences
-    with ui.card(key="experience_card"):
-        st.write("**KAUST/SDAIA Artificial Intelligence Intern**")
-        st.write("Developed predictive models using linear and logistic regression to solve complex business problems.")
-        ui.button(text="View Details", key="experience_details")
 
-    with ui.card(key="absherthon_card"):
-        st.write("**Finalist in Absherthon 2024 Competition**")
-        st.write("Led a cross-functional team to design AI-driven solutions for law enforcement, improving suspect identification processes.")
-        ui.button(text="View Details", key="absherthon_details")
+    # Use Shadcn card component for experiences
+    st.markdown("""
+    <style>
+    .card {
+        background-color: #222;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .button {
+        background-color: #0e76a8;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-align: center;
+    }
+    .button:hover {
+        background-color: #084d6e;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # First experience card
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.write("**KAUST/SDAIA Artificial Intelligence Intern**")
+    st.write("Developed predictive models using linear and logistic regression to solve complex business problems.")
+    st.markdown("<button class='button'>View Details</button>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    # Second experience card
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.write("**Finalist in Absherthon 2024 Competition**")
+    st.write("Led a cross-functional team to design AI-driven solutions for law enforcement, improving suspect identification processes.")
+    st.markdown("<button class='button'>View Details</button>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 elif page == "Education":
     st.markdown("<h2 id='education'>🎓 Education</h2>", unsafe_allow_html=True)
@@ -39,6 +68,7 @@ elif page == "Education":
     - King Abdulaziz University, Jeddah
     - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
     """)
+
     
 elif page == "Skills":
     st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
