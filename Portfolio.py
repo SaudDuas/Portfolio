@@ -102,28 +102,6 @@ elif page == "Skills":
         st.image(icons["Software Development"], width=40)
         st.write("Technologies: Git, Docker, CI/CD.")
 
-
-    # Tab content with icons and descriptions
-    with tabs[0]:
-        st.image(icons["Programming"], width=40)
-        st.write("Skills: Python, Java, C++.")
-        st.image("https://img.icons8.com/color/48/000000/python.png", width=20, caption="Python")
-        st.image("https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png", width=20, caption="Java")
-    
-    with tabs[1]:
-        st.image(icons["Data Visualization"], width=40)
-        st.write("Tools: Tableau, Power BI.")
-    
-    with tabs[2]:
-        st.image(icons["Machine Learning"], width=40)
-        st.write("Frameworks: TensorFlow, PyTorch.")
-    
-    with tabs[3]:
-        st.image(icons["Software Development"], width=40)
-        st.write("Technologies: Git, Docker, CI/CD.")
-
-
-
 elif page == "Projects":
     st.markdown("<h2 id='projects'>🚀 Projects</h2>", unsafe_allow_html=True)
     
