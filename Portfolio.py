@@ -11,12 +11,7 @@ page = st_navbar(["Home", "Experience", "Education", "Skills", "Projects", "Cert
 # Conditional rendering based on the selected page
 if page == "Home":
     st.markdown("<h1 style='text-align: center;'>Saud Alotaibi</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center;'>👨‍💻 Computer Engineering Student | 📊 Aspiring Data Scientist | 💼 Fintech Enthusiast</h3>", unsafe_allow_html=True)
-    
-    # Add alert using Shadcn UI
-    ui.alert_dialog(show=ui.button(text="Latest Update", key="update_btn"), title="Portfolio Update", 
-                    description="Check out my latest projects!", confirm_label="OK", key="update_dialog")
-
+    st.markdown("<h3 style='text-align: center;'>👨‍💻 Computer Engineering Student | 📊 Aspiring Data Scientist | 💼 </h3>", unsafe_allow_html=True)
     # Combine Home and Summary content
     st.markdown("<h2 id='summary'>🔍 Summary</h2>", unsafe_allow_html=True)
     st.write("""
@@ -89,11 +84,7 @@ elif page == "Skills":
     elif selected_tab == "Machine Learning":
         st.write("Frameworks: TensorFlow, PyTorch.")
     elif selected_tab == "Software Development":
-        st.write("Technologies: Git, Docker, CI/CD.")
-
-    # Show the selected tab
-    st.write(f"You selected: {selected_tab}")
-
+        st.write("Technologies: Git, Docker.")
 
 elif page == "Projects":
     st.markdown("<h2 id='projects'>🚀 Projects</h2>", unsafe_allow_html=True)
