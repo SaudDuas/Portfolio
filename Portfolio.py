@@ -3,11 +3,11 @@ from streamlit_navigation_bar import st_navbar
 import streamlit_shadcn_ui as ui
 
 # Example of a button and dialog
-trigger_btn = ui.button(text="Click Me", key="btn")
-ui.alert_dialog(show=trigger_btn, title="Alert", description="This is an alert dialog", confirm_label="OK", key="dialog")
+
 
 st.set_page_config(page_title="My Portfolio", page_icon="favicon-32x32.png")
-
+trigger_btn = ui.button(text="Click Me", key="btn")
+ui.alert_dialog(show=trigger_btn, title="Alert", description="This is an alert dialog", confirm_label="OK", key="dialog")
 # Define your navigation bar
 page = st_navbar(["Home", "Experience", "Education", "Skills", "Projects", "Certifications", "Contact"])
 
