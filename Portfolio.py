@@ -75,21 +75,6 @@ elif page == "Experience and Education":
     - King Abdulaziz University, Jeddah
     - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
     """)
-
-
-
-
-elif page == "Education":
-    st.markdown("<h2 id='education'>🎓 Education</h2>", unsafe_allow_html=True)
-    st.write("""
-    **Bachelor of Engineering (B.Eng.) in Computer Engineering**
-    - King Abdulaziz University, Jeddah
-    - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
-    """)
-
-
-
-
     
 elif page == "Skills":
     st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
