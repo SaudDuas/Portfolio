@@ -76,7 +76,7 @@ elif page == "Skills":
     icons = {
         "Programming": "https://img.icons8.com/color/48/000000/programming.png",
         "Data Visualization": "https://img.icons8.com/color/48/000000/combo-chart.png",
-        "Machine Learning": "https://img.icons8.com/color/48/000000/machine-learning.png",
+        "Machine Learning": "https://icons8.com/icon/62133/machine-learning",
         "Software Development": "https://img.icons8.com/color/48/000000/code.png"
     }
 
