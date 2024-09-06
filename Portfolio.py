@@ -87,29 +87,28 @@ elif page == "Skills":
         "Software Development": "https://img.icons8.com/color/48/000000/code.png"
     }
 
-    # Tabs with icons
-    selected_tab = st.tabs(
-        options=["Programming", "Data Visualization", "Machine Learning", "Software Development"],
-        key="skills_tabs"
-    )
+    # Correct implementation for tabs
+    tabs = st.tabs(["Programming", "Data Visualization", "Machine Learning", "Software Development"])
 
-    # Add corresponding images/icons to each tab
-    if selected_tab == "Programming":
+    # Tab content with icons and descriptions
+    with tabs[0]:
         st.image(icons["Programming"], width=40)
         st.write("Skills: Python, Java, C++.")
         st.image("https://img.icons8.com/color/48/000000/python.png", width=20, caption="Python")
         st.image("https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png", width=20, caption="Java")
-    elif selected_tab == "Data Visualization":
+    
+    with tabs[1]:
         st.image(icons["Data Visualization"], width=40)
         st.write("Tools: Tableau, Power BI.")
-    elif selected_tab == "Machine Learning":
+    
+    with tabs[2]:
         st.image(icons["Machine Learning"], width=40)
         st.write("Frameworks: TensorFlow, PyTorch.")
-    elif selected_tab == "Software Development":
+    
+    with tabs[3]:
         st.image(icons["Software Development"], width=40)
         st.write("Technologies: Git, Docker, CI/CD.")
 
-    st.write(f"You selected: {selected_tab}")
 
 
 elif page == "Projects":
