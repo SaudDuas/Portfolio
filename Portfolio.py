@@ -78,6 +78,14 @@ elif page == "Experience and Education":
     
 elif page == "Skills and Certifications":
     st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
+    # Add Certifications Section
+    st.markdown("<h2 id='certifications'>🎖️ Certifications</h2>", unsafe_allow_html=True)
+    st.write("""
+    - **Introduction to AI** – KAUST/SDAIA
+    - **Advanced AI** – KAUST/SDAIA
+    - **Data Analytics Certificate** – Google
+    - **McKinsey Forward Program** – McKinsey & Company
+    """)
 
     # Custom CSS for centering the category icon and better layout for skill icons
     st.markdown("""
@@ -142,15 +150,6 @@ elif page == "Skills and Certifications":
         st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Software Development"]), unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/git.png" class="skill-icon"><span class="skill-text">Git</span></div>', unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/docker.png" class="skill-icon"><span class="skill-text">Docker</span></div>', unsafe_allow_html=True)
-
-    # Add Certifications Section
-    st.markdown("<h2 id='certifications'>🎖️ Certifications</h2>", unsafe_allow_html=True)
-    st.write("""
-    - **Introduction to AI** – KAUST/SDAIA
-    - **Advanced AI** – KAUST/SDAIA
-    - **Data Analytics Certificate** – Google
-    - **McKinsey Forward Program** – McKinsey & Company
-    """)
 
 
 if page == "Contact":
