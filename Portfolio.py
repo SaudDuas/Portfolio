@@ -161,7 +161,6 @@ elif page == "Skills and Certifications":
     with tabs[3]:
         st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Software Development"]), unsafe_allow_html=True)
         st.markdown('<div class="skills-container">', unsafe_allow_html=True)
-       ```python
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/git.png" class="skill-icon"><span class="skill-text">Git</span></div>', unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/docker.png" class="skill-icon"><span class="skill-text">Docker</span></div>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
