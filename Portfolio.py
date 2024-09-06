@@ -18,7 +18,7 @@ if page == "Home":
     I am a computer engineering student with a strong interest in machine learning, data analysis, and fintech. My goal is to work for a big data analysis company or start my own tech startup. I have experience in Python, machine learning, and data visualization tools such as Tableau and Power BI.
     """)
 
-elif page == "Experience":
+elif page == "Experience and Education":
     st.markdown("<h2 id='experience'>💼 Experience</h2>", unsafe_allow_html=True)
 
     # Custom CSS for card styling
@@ -47,14 +47,10 @@ elif page == "Experience":
     }
     </style>
     """, unsafe_allow_html=True)
-    
-    st.markdown("<h2 id='education'>🎓 Education</h2>", unsafe_allow_html=True)
-    st.write("""
-    **Bachelor of Engineering (B.Eng.) in Computer Engineering**
-    - King Abdulaziz University, Jeddah
-    - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
-    """)
 
+    # Experience Section
+    st.markdown("<h3>Experience</h3>", unsafe_allow_html=True)
+    
     # First experience card
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.write("**KAUST/SDAIA Artificial Intelligence Intern**")
@@ -68,6 +64,15 @@ elif page == "Experience":
     st.write("Led a cross-functional team to design AI-driven solutions for law enforcement, improving suspect identification processes.")
     st.markdown("<button class='button'>View Details</button>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
+
+    # Education Section
+    st.markdown("<h3>Education</h3>", unsafe_allow_html=True)
+    st.write("""
+    **Bachelor of Engineering (B.Eng.) in Computer Engineering**
+    - King Abdulaziz University, Jeddah
+    - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
+    """)
+
 
 elif page == "Education":
     st.markdown("<h2 id='education'>🎓 Education</h2>", unsafe_allow_html=True)
