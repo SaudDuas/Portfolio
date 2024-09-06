@@ -21,7 +21,7 @@ if page == "Home":
 elif page == "Experience and Education":
     st.markdown("<h2 id='experience'>💼 Experience</h2>", unsafe_allow_html=True)
 
-    # Custom CSS for card styling
+    # Custom CSS for card styling and button interaction
     st.markdown("""
     <style>
     .card {
@@ -41,6 +41,7 @@ elif page == "Experience and Education":
         cursor: pointer;
         transition: background-color 0.3s;
         text-align: center;
+        display: inline-block;
     }
     .button:hover {
         background-color: #084d6e;
@@ -50,19 +51,21 @@ elif page == "Experience and Education":
 
     # Experience Section
     st.markdown("<h3>Experience</h3>", unsafe_allow_html=True)
-    
+
     # First experience card
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.write("**KAUST/SDAIA Artificial Intelligence Intern**")
     st.write("Developed predictive models using linear and logistic regression to solve complex business problems.")
-    st.markdown("<button class='button'>View Details</button>", unsafe_allow_html=True)
+    if st.button("View Details", key="experience_details_1"):
+        st.write("More information about the KAUST/SDAIA Artificial Intelligence Intern position.")
     st.markdown("</div>", unsafe_allow_html=True)
 
     # Second experience card
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.write("**Finalist in Absherthon 2024 Competition**")
     st.write("Led a cross-functional team to design AI-driven solutions for law enforcement, improving suspect identification processes.")
-    st.markdown("<button class='button'>View Details</button>", unsafe_allow_html=True)
+    if st.button("View Details", key="experience_details_2"):
+        st.write("More information about the Absherthon 2024 competition experience.")
     st.markdown("</div>", unsafe_allow_html=True)
 
     # Education Section
@@ -72,6 +75,8 @@ elif page == "Experience and Education":
     - King Abdulaziz University, Jeddah
     - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
     """)
+
+
 
 
 elif page == "Education":
