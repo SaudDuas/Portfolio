@@ -6,12 +6,19 @@ import streamlit_shadcn_ui as ui  # Import Shadcn UI components
 st.set_page_config(page_title="My Portfolio", page_icon="favicon-32x32.png")
 
 # Define your navigation bar
-page = st_navbar(["Home", "Experience and Education",  "Skills and Certifications", "Projects",  "Contact"])
+page = st_navbar(["Home", "Experience and Education",  "Skills and Certifications", "Projects", "Contact"])
 
 # Conditional rendering based on the selected page
 if page == "Home":
     st.markdown("<h1 style='text-align: center;'>Saud Alotaibi</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>👨‍💻 Computer Engineering Student | 📊 Aspiring Data Scientist | 💼 </h3>", unsafe_allow_html=True)
+
+    # Objective Section
+    st.markdown("<h2 id='objective'>🌟 Objective</h2>", unsafe_allow_html=True)
+    st.write("""
+    Aspiring consultant with a strong background in AI, machine learning, and data analysis seeking to leverage my technical and analytical skills in management consulting roles to deliver data-driven solutions for complex business challenges.
+    """)
+
     # Combine Home and Summary content
     st.markdown("<h2 id='summary'>🔍 Summary</h2>", unsafe_allow_html=True)
     st.write("""
@@ -56,11 +63,17 @@ elif page == "Experience and Education":
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.write("**KAUST/SDAIA Artificial Intelligence Intern**")
     st.write("Developed predictive models using linear and logistic regression to solve complex business problems.")
+    st.write("Contributed to computer vision techniques to improve decision-making processes.")
     if st.button("View Details", key="experience_details_1"):
         st.write("More information about the KAUST/SDAIA Artificial Intelligence Intern position.")
     st.markdown("</div>", unsafe_allow_html=True)
 
     # Second experience card
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.write("**STC Data Analyst (Virtual Experience)**")
+    st.write("Conducted in-depth data analysis and predictive modeling to build a recommendation system for STC TV, enhancing user engagement and satisfaction.")
+    st.markdown("</div>", unsafe_allow_html=True)
+
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.write("**Finalist in Absherthon 2024 Competition**")
     st.write("Led a cross-functional team to design AI-driven solutions for law enforcement, improving suspect identification processes.")
@@ -73,9 +86,10 @@ elif page == "Experience and Education":
     st.write("""
     **Bachelor of Engineering (B.Eng.) in Computer Engineering**
     - King Abdulaziz University, Jeddah
+    - Relevant Coursework: AI, Software Engineering, Statistics, Project Consulting
     - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
     """)
-    
+
 elif page == "Skills and Certifications":
     st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
 
@@ -147,6 +161,7 @@ elif page == "Skills and Certifications":
     with tabs[3]:
         st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Software Development"]), unsafe_allow_html=True)
         st.markdown('<div class="skills-container">', unsafe_allow_html=True)
+       ```python
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/git.png" class="skill-icon"><span class="skill-text">Git</span></div>', unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/docker.png" class="skill-icon"><span class="skill-text">Docker</span></div>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
@@ -159,6 +174,22 @@ elif page == "Skills and Certifications":
     - **Data Analytics Certificate** – Google
     - **McKinsey Forward Program** – McKinsey & Company
     """)
+
+if page == "Projects":
+    st.markdown("<h2 id='projects'>🚀 Projects</h2>", unsafe_allow_html=True)
+
+    # Use Shadcn card component for project descriptions
+    with ui.card(key="trading_bot_card"):
+        st.write("**Trading Bot**")
+        st.write("Developed a trading bot to analyze the US stock market, providing daily buy/sell recommendations with high accuracy.")
+        st.image("pic1.webp", caption="Trading Bot Project", use_column_width=True)
+        ui.button(text="More Details", key="trading_bot_btn")
+
+    with ui.card(key="law_enforcement_card"):
+        st.write("**AI-Driven Solutions for Law Enforcement**")
+        st.write("Led a cross-functional team in the Absherthon 2024 competition, designing AI-driven solutions for law enforcement.")
+        st.image("pic2.webp", caption="AI-Driven Solutions for Law Enforcement", use_column_width=True)
+        ui.button(text="More Details", key="law_enforcement_btn")
 
 if page == "Contact":
     st.markdown("<h2 id='contact'>📬 Contact</h2>", unsafe_allow_html=True)
