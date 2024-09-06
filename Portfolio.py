@@ -187,7 +187,7 @@ elif page == "Contact":
         # Sending form data to FormSubmit
         st.write(f"Thank you {name}! Your message has been sent.")
         st.markdown(f"""
-        <form action="https://formsubmit.co/saud.bin.fawaz@gmail.com" method="POST" style="display:none;">
+        <form action="798ca3aac81c91f8fe69bfb3b6fcada0" method="POST" style="display:none;">
             <input type="hidden" name="_subject" value="New contact form submission from {name}">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="name" value="{name}">
