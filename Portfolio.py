@@ -45,16 +45,22 @@ elif page == "Education":
     - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
     """)
 
-elif page == "Skills":
-    st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
-    
-    # Use Shadcn UI Tabs for skills
-    selected_tab = ui.tabs(
+    # Tabs for skills section
+    selected_skill = ui.tabs(
         options=["Programming", "Data Visualization", "Machine Learning", "Software Development"],
         key="skills_tabs"
     )
     
-    st.write(f"You selected: {selected_tab}")
+    # Display description based on selected tab
+    if selected_skill == "Programming":
+        st.write("Skills: Python, Java, C++.")
+    elif selected_skill == "Data Visualization":
+        st.write("Tools: Tableau, Power BI.")
+    elif selected_skill == "Machine Learning":
+        st.write("Frameworks: TensorFlow, PyTorch.")
+    elif selected_skill == "Software Development":
+        st.write("Technologies: Git, Docker, CI/CD.")
+
 
 elif page == "Projects":
     st.markdown("<h2 id='projects'>🚀 Projects</h2>", unsafe_allow_html=True)
