@@ -1,13 +1,10 @@
 import streamlit as st
 from streamlit_navigation_bar import st_navbar
-import streamlit_shadcn_ui as ui
+import streamlit_shadcn_ui as ui  # Import Shadcn UI components
 
-# Example of a button and dialog
-
-
+# Set page configuration including favicon
 st.set_page_config(page_title="My Portfolio", page_icon="favicon-32x32.png")
-trigger_btn = ui.button(text="Click Me", key="btn")
-ui.alert_dialog(show=trigger_btn, title="Alert", description="This is an alert dialog", confirm_label="OK", key="dialog")
+
 # Define your navigation bar
 page = st_navbar(["Home", "Experience", "Education", "Skills", "Projects", "Certifications", "Contact"])
 
@@ -16,6 +13,10 @@ if page == "Home":
     st.markdown("<h1 style='text-align: center;'>Saud Alotaibi</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>👨‍💻 Computer Engineering Student | 📊 Aspiring Data Scientist | 💼 Fintech Enthusiast</h3>", unsafe_allow_html=True)
     
+    # Add alert using Shadcn UI
+    ui.alert_dialog(show=ui.button(text="Latest Update", key="update_btn"), title="Portfolio Update", 
+                    description="Check out my latest projects!", confirm_label="OK", key="update_dialog")
+
     # Combine Home and Summary content
     st.markdown("<h2 id='summary'>🔍 Summary</h2>", unsafe_allow_html=True)
     st.write("""
@@ -24,20 +25,17 @@ if page == "Home":
 
 elif page == "Experience":
     st.markdown("<h2 id='experience'>💼 Experience</h2>", unsafe_allow_html=True)
-    st.write("""
-    **KAUST/SDAIA Artificial Intelligence Intern**
-    - Developed predictive models using linear and logistic regression to solve complex business problems.
-    - Applied computer vision techniques to enhance decision-making processes through advanced image analysis and object detection.
+    
+    # Use Shadcn card component for experiences
+    with ui.card(key="experience_card"):
+        st.write("**KAUST/SDAIA Artificial Intelligence Intern**")
+        st.write("Developed predictive models using linear and logistic regression to solve complex business problems.")
+        ui.button(text="View Details", key="experience_details")
 
-    **Finalist in Absherthon 2024 Competition**
-    - Led a cross-functional team to design AI-driven solutions for law enforcement, improving suspect identification processes.
-    - Demonstrated leadership and innovation by ranking within the top 9 out of 6000 participants from 56 countries.
-
-    **Virtual Work Experience (Misk)**
-    - **STC Data Analyst**: Conducted in-depth data analysis and predictive modeling to build a recommendation system for STC TV, enhancing user engagement and satisfaction.
-    - **Foodics UX Designer**: Delivered insightful business recommendations through user experience testing and customer needs analysis, driving better user retention.
-    """)
-
+    with ui.card(key="absherthon_card"):
+        st.write("**Finalist in Absherthon 2024 Competition**")
+        st.write("Led a cross-functional team to design AI-driven solutions for law enforcement, improving suspect identification processes.")
+        ui.button(text="View Details", key="absherthon_details")
 
 elif page == "Education":
     st.markdown("<h2 id='education'>🎓 Education</h2>", unsafe_allow_html=True)
@@ -49,29 +47,24 @@ elif page == "Education":
 
 elif page == "Skills":
     st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
-    st.write("""
-    - **Programming Languages**: Python, R, SQL
-    - **Data Visualization**: Tableau, Power BI
-    - **Machine Learning**: Pytorch, Scikit-learn
-    - **Software Development**: Git, Docker
-    - **Soft Skills**: Leadership, Analytical Problem-Solving, Business Analysis
-    - **Management Consulting**: Data-Driven Decision Making, Strategic Analysis
-    - **Tools**: Excel, SQL, Power BI, Tableau
-    """)
-
+    ui.radio_group(options=["Programming", "Data Visualization", "Machine Learning", "Software Development"],
+                   label="Explore My Skills", key="skills_radio")
 
 elif page == "Projects":
     st.markdown("<h2 id='projects'>🚀 Projects</h2>", unsafe_allow_html=True)
-    st.write("""
-    **Trading Bot**
-    - Developed a trading bot to analyze the US stock market, providing daily buy/sell recommendations with high accuracy.
-    """)
-    st.image("pic1.webp", caption="Trading Bot Project", use_column_width=True)
+    
+    # Use Shadcn card component for project descriptions
+    with ui.card(key="trading_bot_card"):
+        st.write("**Trading Bot**")
+        st.write("Developed a trading bot to analyze the US stock market, providing daily buy/sell recommendations with high accuracy.")
+        st.image("pic1.webp", caption="Trading Bot Project", use_column_width=True)
+        ui.button(text="More Details", key="trading_bot_btn")
 
-    st.write("""**AI-Driven Solutions for Law Enforcement**
-    - Led a cross-functional team in the Absherthon 2024 competition, designing AI-driven solutions for law enforcement.
-    """)
-    st.image("pic2.webp", caption="AI-Driven Solutions for Law Enforcement", use_column_width=True)
+    with ui.card(key="law_enforcement_card"):
+        st.write("**AI-Driven Solutions for Law Enforcement**")
+        st.write("Led a cross-functional team in the Absherthon 2024 competition, designing AI-driven solutions for law enforcement.")
+        st.image("pic2.webp", caption="AI-Driven Solutions for Law Enforcement", use_column_width=True)
+        ui.button(text="More Details", key="law_enforcement_btn")
 
 elif page == "Certifications":
     st.markdown("<h2 id='certifications'>🎖️ Certifications</h2>", unsafe_allow_html=True)
@@ -93,9 +86,10 @@ elif page == "Contact":
     submit_button = contact_form.form_submit_button(label='Submit')
 
     if submit_button:
+        # Sending form data to FormSubmit
         st.write(f"Thank you {name}! Your message has been sent.")
         st.markdown(f"""
-        <form action="https://formsubmit.co/798ca3aac81c91f8fe69bfb3b6fcada0" method="POST" style="display:none;">
+        <form action="https://formsubmit.co/saud.bin.fawaz@gmail.com" method="POST" style="display:none;">
             <input type="hidden" name="_subject" value="New contact form submission from {name}">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="name" value="{name}">
