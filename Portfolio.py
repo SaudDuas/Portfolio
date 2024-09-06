@@ -43,7 +43,7 @@ elif page == "Education":
 elif page == "Skills":
     st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
 
-    # Custom CSS for icons and tabs
+    # Custom CSS for better icon and text alignment
     st.markdown("""
     <style>
     .skills-container {
@@ -59,22 +59,15 @@ elif page == "Skills":
     .skill-icon {
         width: 40px;
         height: 40px;
+        margin-right: 10px;
     }
-    .tab-button {
-        padding: 10px 20px;
-        border: none;
-        background-color: #f0f0f0;
+    .skill-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .skill-text {
         font-size: 16px;
-        border-radius: 8px;
-        margin: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .tab-button:hover {
-        background-color: #ddd;
-    }
-    .tab-button-selected {
-        background-color: #ccc;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -87,8 +80,28 @@ elif page == "Skills":
         "Software Development": "https://img.icons8.com/color/48/000000/code.png"
     }
 
-    # Correct implementation for tabs
+    # Tabs with icons
     tabs = st.tabs(["Programming", "Data Visualization", "Machine Learning", "Software Development"])
+
+    # Tab content with improved icon and text styling
+    with tabs[0]:
+        st.image(icons["Programming"], width=40)
+        st.write("Skills: Python, Java, C++.")
+        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/48/000000/python.png" class="skill-icon"><span class="skill-text">Python</span></div>', unsafe_allow_html=True)
+        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png" class="skill-icon"><span class="skill-text">Java</span></div>', unsafe_allow_html=True)
+
+    with tabs[1]:
+        st.image(icons["Data Visualization"], width=40)
+        st.write("Tools: Tableau, Power BI.")
+    
+    with tabs[2]:
+        st.image(icons["Machine Learning"], width=40)
+        st.write("Frameworks: TensorFlow, PyTorch.")
+    
+    with tabs[3]:
+        st.image(icons["Software Development"], width=40)
+        st.write("Technologies: Git, Docker, CI/CD.")
+
 
     # Tab content with icons and descriptions
     with tabs[0]:
