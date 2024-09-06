@@ -6,7 +6,7 @@ import streamlit_shadcn_ui as ui  # Import Shadcn UI components
 st.set_page_config(page_title="My Portfolio", page_icon="favicon-32x32.png")
 
 # Define your navigation bar
-page = st_navbar(["Home", "Experience and Eduction", "Education", "Skills", "Projects", "Certifications", "Contact"])
+page = st_navbar(["Home", "Experience and Education", "Education", "Skills", "Projects", "Certifications", "Contact"])
 
 # Conditional rendering based on the selected page
 if page == "Home":
