@@ -91,7 +91,7 @@ elif page == "Skills":
         st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Programming"]), unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/python.png" class="skill-icon"><span class="skill-text">Python</span></div>', unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/java-coffee-cup-logo.png" class="skill-icon"><span class="skill-text">Java</span></div>', unsafe_allow_html=True)
-        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/?size=100&id=CLvQeiwFpit4&format=png&color=000000" class="skill-icon"><span class="skill-text">R</span></div>', unsafe_allow_html=True)>')
+        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/?size=100&id=CLvQeiwFpit4&format=png&color=000000" class="skill-icon"><span class="skill-text">R</span></div>', unsafe_allow_html=True)
     with tabs[1]:
         st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Data Visualization"]), unsafe_allow_html=True)
         st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/tableau-software.png" class="skill-icon"><span class="skill-text">Tableau</span></div>', unsafe_allow_html=True)
