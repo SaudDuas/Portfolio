@@ -47,6 +47,13 @@ elif page == "Experience":
     }
     </style>
     """, unsafe_allow_html=True)
+    
+    st.markdown("<h2 id='education'>🎓 Education</h2>", unsafe_allow_html=True)
+    st.write("""
+    **Bachelor of Engineering (B.Eng.) in Computer Engineering**
+    - King Abdulaziz University, Jeddah
+    - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
+    """)
 
     # First experience card
     st.markdown("<div class='card'>", unsafe_allow_html=True)
