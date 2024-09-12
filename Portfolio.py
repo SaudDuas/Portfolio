@@ -1,172 +1,150 @@
 import streamlit as st
-from streamlit_navigation_bar import st_navbar
-import streamlit_shadcn_ui as ui  # Import Shadcn UI components
+from streamlit_option_menu import option_menu
+from PIL import Image
+import base64
 
-# Set page configuration including favicon
-st.set_page_config(page_title="My Portfolio", page_icon="favicon-32x32.png")
+# Set page configuration
+st.set_page_config(page_title="My Portfolio", page_icon=":briefcase:", layout="wide")
 
-# Define your navigation bar
-page = st_navbar(["Home", "Experience and Education",  "Skills and Certifications", "Projects", "Contact"])
+# Hide default Streamlit style and footer
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-# Conditional rendering based on the selected page
-if page == "Home":
-    st.markdown("<h1 style='text-align: center;'>Saud Alotaibi</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center;'>👨‍💻 Computer Engineering Student | 📊 Aspiring Data Scientist | 💼 </h3>", unsafe_allow_html=True)
+# Custom CSS for styling
+st.markdown("""
+    <style>
+    body {
+        background-color: #f0f2f6;
+    }
+    .main {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .css-18e3th9 {
+        padding: 0;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
+# Define the navigation menu
+with st.sidebar:
+    selected = option_menu(
+        menu_title=None,
+        options=["Home", "Experience", "Skills", "Projects", "Contact"],
+        icons=["house", "briefcase", "gear", "rocket", "envelope"],
+        menu_icon="cast",
+        default_index=0,
+        orientation="vertical",
+    )
+
+# Home Page
+if selected == "Home":
+    st.title("Saud Alotaibi")
+    st.subheader("👨‍💻 Computer Engineering Student | 📊 Aspiring Data Scientist")
+    
     # Objective Section
-    st.markdown("<h2 id='objective'>🌟 Objective</h2>", unsafe_allow_html=True)
+    st.markdown("## 🌟 Objective")
     st.write("""
     Aspiring consultant with a strong background in AI, machine learning, and data analysis seeking to leverage my technical and analytical skills in management consulting roles to deliver data-driven solutions for complex business challenges.
     """)
-
-    # Combine Home and Summary content
-    st.markdown("<h2 id='summary'>🔍 Summary</h2>", unsafe_allow_html=True)
+    
+    # Summary Section
+    st.markdown("## 🔍 Summary")
     st.write("""
     I am a computer engineering student with a strong interest in machine learning, data analysis, and fintech. My goal is to work for a big data analysis company or start my own tech startup. I have experience in Python, machine learning, and data visualization tools such as Tableau and Power BI.
     """)
+    
+    # Profile Picture
+    profile_pic = Image.open("profile_picture.jpg")  # Replace with your profile picture
+    st.image(profile_pic, width=200)
 
-elif page == "Experience and Education":
-    st.markdown("<h2 id='experience'>💼 Experience</h2>", unsafe_allow_html=True)
-
-    # Custom CSS for card styling and button interaction
-    st.markdown("""
-    <style>
-    .card {
-        background-color: #2a2a2a;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        color: white;
-    }
-    .button {
-        background-color: #0e76a8;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        text-align: center;
-        display: inline-block;
-    }
-    .button:hover {
-        background-color: #084d6e;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-    # Experience Section
-    st.markdown("<h3>Experience</h3>", unsafe_allow_html=True)
-
-    # First experience card
-    st.markdown("<div class='card'>", unsafe_allow_html=True)
-    st.write("**KAUST/SDAIA Artificial Intelligence Intern**")
-    st.write("Developed predictive models using linear and logistic regression to solve complex business problems.")
-    st.write("Contributed to computer vision techniques to improve decision-making processes.")
-    if st.button("View Details", key="experience_details_1"):
-        st.write("More information about the KAUST/SDAIA Artificial Intelligence Intern position.")
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    # Second experience card
-    st.markdown("<div class='card'>", unsafe_allow_html=True)
-    st.write("**STC Data Analyst (Virtual Experience)**")
-    st.write("Conducted in-depth data analysis and predictive modeling to build a recommendation system for STC TV, enhancing user engagement and satisfaction.")
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    st.markdown("<div class='card'>", unsafe_allow_html=True)
-    st.write("**Finalist in Absherthon 2024 Competition**")
-    st.write("Led a cross-functional team to design AI-driven solutions for law enforcement, improving suspect identification processes.")
-    if st.button("View Details", key="experience_details_2"):
-        st.write("More information about the Absherthon 2024 competition experience.")
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    # Education Section
-    st.markdown("<h3>Education</h3>", unsafe_allow_html=True)
+# Experience Page
+elif selected == "Experience":
+    st.markdown("## 💼 Experience")
+    
+    # KAUST/SDAIA Internship
+    st.markdown("### KAUST/SDAIA Artificial Intelligence Intern")
     st.write("""
-    **Bachelor of Engineering (B.Eng.) in Computer Engineering**
-    - King Abdulaziz University, Jeddah
-    - Relevant Coursework: AI, Software Engineering, Statistics, Project Consulting
-    - Member of Ai Division at DRAG KAU and Engineering Innovation Club – Project Consulting
+    - Developed predictive models using linear and logistic regression to solve complex business problems.
+    - Contributed to computer vision techniques to improve decision-making processes.
     """)
+    if st.button("View Details", key="experience1"):
+        st.write("More information about the KAUST/SDAIA Artificial Intelligence Intern position.")
+    
+    # STC Data Analyst
+    st.markdown("### STC Data Analyst (Virtual Experience)")
+    st.write("""
+    - Conducted in-depth data analysis and predictive modeling to build a recommendation system for STC TV.
+    - Enhanced user engagement and satisfaction.
+    """)
+    
+    # Absherthon Competition
+    st.markdown("### Finalist in Absherthon 2024 Competition")
+    st.write("""
+    - Led a cross-functional team to design AI-driven solutions for law enforcement.
+    - Improved suspect identification processes.
+    """)
+    if st.button("View Details", key="experience2"):
+        st.write("More information about the Absherthon 2024 competition experience.")
 
-elif page == "Skills and Certifications":
-    st.markdown("<h2 id='skills'>🛠️ Skills</h2>", unsafe_allow_html=True)
-
-    # Custom CSS for centering the category icon and better layout for skill icons
-    st.markdown("""
-    <style>
-    .center-icon {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-    .skills-container {
-        display: flex;
-        justify-content: left;
-        width: 100%;
-        flex-wrap: wrap;
-    }
-    .skill-row {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-    .skill-icon {
-        width: 60px;
-        height: 60px;
-        margin-right: 20px;
-    }
-    .skill-text {
-        font-size: 20px;
-        font-weight: bold;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-    # Example icons (replace with actual URLs or local images)
-    icons = {
-        "Programming": "https://img.icons8.com/color/48/000000/programming.png",
-        "Data Visualization": "https://img.icons8.com/color/48/000000/combo-chart.png",
-        "Machine Learning": "https://img.icons8.com/?size=100&id=tFtZYfD5boWL&format=png&color=000000",
-        "Software Development": "https://img.icons8.com/color/48/000000/code.png"
-    }
-
-    # Tabs with icons
+# Skills Page
+elif selected == "Skills":
+    st.markdown("## 🛠️ Skills")
+    
+    # Create tabs for different skill categories
     tabs = st.tabs(["Programming", "Data Visualization", "Machine Learning", "Software Development"])
-
-    # Tab content with category icon in the center and skills justified left
+    
     with tabs[0]:
-        st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Programming"]), unsafe_allow_html=True)
-        st.markdown('<div class="skills-container">', unsafe_allow_html=True)
-        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/python.png" class="skill-icon"><span class="skill-text">Python</span></div>', unsafe_allow_html=True)
-        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/java-coffee-cup-logo.png" class="skill-icon"><span class="skill-text">Java</span></div>', unsafe_allow_html=True)
-        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/?size=100&id=CLvQeiwFpit4&format=png&color=000000" class="skill-icon"><span class="skill-text">R</span></div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown("### Programming Languages")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.image("https://img.icons8.com/color/60/000000/python.png")
+            st.write("Python")
+        with col2:
+            st.image("https://img.icons8.com/color/60/000000/java-coffee-cup-logo.png")
+            st.write("Java")
+        with col3:
+            st.image("https://img.icons8.com/color/60/000000/c-programming.png")
+            st.write("C")
 
     with tabs[1]:
-        st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Data Visualization"]), unsafe_allow_html=True)
-        st.markdown('<div class="skills-container">', unsafe_allow_html=True)
-        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/tableau-software.png" class="skill-icon"><span class="skill-text">Tableau</span></div>', unsafe_allow_html=True)
-        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/?size=100&id=Ny0t2MYrJ70p&format=png&color=000000" class="skill-icon"><span class="skill-text">Power BI</span></div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
-
+        st.markdown("### Data Visualization Tools")
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image("https://img.icons8.com/color/60/000000/tableau-software.png")
+            st.write("Tableau")
+        with col2:
+            st.image("https://img.icons8.com/color/60/000000/power-bi.png")
+            st.write("Power BI")
+    
     with tabs[2]:
-        st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Machine Learning"]), unsafe_allow_html=True)
-        st.markdown('<div class="skills-container">', unsafe_allow_html=True)
-        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/tensorflow.png" class="skill-icon"><span class="skill-text">TensorFlow</span></div>', unsafe_allow_html=True)
-        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/?size=100&id=O6SWwpPIM0GB&format=png&color=000000" class="skill-icon"><span class="skill-text">PyTorch</span></div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
-
+        st.markdown("### Machine Learning Frameworks")
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image("https://img.icons8.com/color/60/000000/tensorflow.png")
+            st.write("TensorFlow")
+        with col2:
+            st.image("https://img.icons8.com/color/60/000000/pytorch.png")
+            st.write("PyTorch")
+    
     with tabs[3]:
-        st.markdown('<div class="center-icon"><img src="{}" width="80"></div>'.format(icons["Software Development"]), unsafe_allow_html=True)
-        st.markdown('<div class="skills-container">', unsafe_allow_html=True)
-        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/git.png" class="skill-icon"><span class="skill-text">Git</span></div>', unsafe_allow_html=True)
-        st.markdown('<div class="skill-row"><img src="https://img.icons8.com/color/60/000000/docker.png" class="skill-icon"><span class="skill-text">Docker</span></div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    # Certifications Section
-    st.markdown("<h2 id='certifications'>🎖️ Certifications</h2>", unsafe_allow_html=True)
+        st.markdown("### Software Development Tools")
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image("https://img.icons8.com/color/60/000000/git.png")
+            st.write("Git")
+        with col2:
+            st.image("https://img.icons8.com/color/60/000000/docker.png")
+            st.write("Docker")
+    
+    # Certifications
+    st.markdown("## 🎖️ Certifications")
     st.write("""
     - **Introduction to AI** – KAUST/SDAIA
     - **Advanced AI** – KAUST/SDAIA
@@ -174,44 +152,45 @@ elif page == "Skills and Certifications":
     - **McKinsey Forward Program** – McKinsey & Company
     """)
 
-if page == "Projects":
-    st.markdown("<h2 id='projects'>🚀 Projects</h2>", unsafe_allow_html=True)
+# Projects Page
+elif selected == "Projects":
+    st.markdown("## 🚀 Projects")
+    
+    # Trading Bot Project
+    st.markdown("### Trading Bot")
+    st.write("""
+    Developed a trading bot to analyze the US stock market, providing daily buy/sell recommendations with high accuracy.
+    """)
+    st.image("trading_bot_image.jpg", caption="Trading Bot Project", use_column_width=True)
+    if st.button("More Details", key="project1"):
+        st.write("Detailed description of the Trading Bot project.")
+    
+    # Law Enforcement AI Project
+    st.markdown("### AI-Driven Solutions for Law Enforcement")
+    st.write("""
+    Led a cross-functional team in the Absherthon 2024 competition, designing AI-driven solutions for law enforcement.
+    """)
+    st.image("law_enforcement_image.jpg", caption="AI-Driven Solutions for Law Enforcement", use_column_width=True)
+    if st.button("More Details", key="project2"):
+        st.write("Detailed description of the Law Enforcement AI project.")
 
-    # Use Shadcn card component for project descriptions
-    with ui.card(key="trading_bot_card"):
-        st.write("**Trading Bot**")
-        st.write("Developed a trading bot to analyze the US stock market, providing daily buy/sell recommendations with high accuracy.")
-        st.image("pic1.webp", caption="Trading Bot Project", use_column_width=True)
-        ui.button(text="More Details", key="trading_bot_btn")
-
-    with ui.card(key="law_enforcement_card"):
-        st.write("**AI-Driven Solutions for Law Enforcement**")
-        st.write("Led a cross-functional team in the Absherthon 2024 competition, designing AI-driven solutions for law enforcement.")
-        st.image("pic2.webp", caption="AI-Driven Solutions for Law Enforcement", use_column_width=True)
-        ui.button(text="More Details", key="law_enforcement_btn")
-
-if page == "Contact":
-    st.markdown("<h2 id='contact'>📬 Contact</h2>", unsafe_allow_html=True)
-    st.write("If you're interested in connecting, please fill out the form below:")
-
-    contact_form = st.form(key='contact_form')
-    name = contact_form.text_input("Your Name")
-    email = contact_form.text_input("Your Email")
-    message = contact_form.text_area("Message")
-    submit_button = contact_form.form_submit_button(label='Submit')
-
+# Contact Page
+elif selected == "Contact":
+    st.markdown("## 📬 Contact")
+    st.write("Feel free to reach out by filling the form below:")
+    
+    # Contact Form
+    with st.form(key='contact_form'):
+        name = st.text_input("Your Name")
+        email = st.text_input("Your Email")
+        message = st.text_area("Message")
+        submit_button = st.form_submit_button(label='Submit')
+    
     if submit_button:
-        st.write(f"Thank you {name}! Your message has been sent.")
-        st.markdown(f"""
-        <form action="https://formsubmit.co/798ca3aac81c91f8fe69bfb3b6fcada0" method="POST" style="display:none;">
-            <input type="hidden" name="_subject" value="New contact form submission from {name}">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="name" value="{name}">
-            <input type="hidden" name="email" value="{email}">
-            <input type="hidden" name="message" value="{message}">
-            <input type="submit" value="Send">
-        </form>
-        <script>
-        document.forms[0].submit();
-        </script>
-        """, unsafe_allow_html=True)
+        st.success(f"Thank you {name}! Your message has been sent.")
+        # Here you would typically handle the form submission, e.g., send an email
+
+# Footer
+st.markdown("---")
+st.markdown("© 2023 Saud Alotaibi")
+
