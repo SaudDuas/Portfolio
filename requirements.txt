@@ -1,5 +1,6 @@
 streamlit
 streamlit-navigation-bar
 streamlit_shadcn_ui
+streamlit_option_menu
 pandas
 numpy
