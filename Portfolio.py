@@ -223,19 +223,34 @@ elif selected == "Projects":
 elif selected == "Contact":
     st.markdown("## 📬 Contact")
     st.write("Feel free to reach out by filling the form below:")
-    
+
     # Contact Form
     with st.form(key='contact_form'):
         name = st.text_input("Your Name")
         email = st.text_input("Your Email")
         message = st.text_area("Message")
         submit_button = st.form_submit_button(label='Submit')
-    
+
     if submit_button:
-        st.success(f"Thank you {name}! Your message has been sent.")
-        # Here you would typically handle the form submission, e.g., send an email
+        if name and email and message:
+            st.success(f"Thank you {name}! Your message has been sent.")
+
+            # Hidden FormSubmit form
+            st.markdown(f"""
+                <form action="https://formsubmit.co/798ca3aac81c91f8fe69bfb3b6fcada0" method="POST" id="fs-frm">
+                    <input type="hidden" name="_subject" value="New contact form submission from {name}">
+                    <input type="hidden" name="name" value="{name}">
+                    <input type="hidden" name="email" value="{email}">
+                    <input type="hidden" name="message" value="{message}">
+                </form>
+                <script>
+                    document.getElementById('fs-frm').submit();
+                </script>
+                """, unsafe_allow_html=True)
+        else:
+            st.error("Please fill out all fields.")
 
 # Footer
 st.markdown("---")
-st.markdown("© 2023 Saud Alotaibi")
+st.markdown("© 2024 Saud Alotaibi")
 
