@@ -18,14 +18,59 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 # Custom CSS for styling
 st.markdown("""
     <style>
+    /* Dark background */
     body {
-        background-color: #f0f2f6;
+        background-color: #121212;
+        color: #FFFFFF;
     }
     .main {
-        background-color: #ffffff;
+        background-color: #1E1E1E;
         padding: 20px;
         border-radius: 10px;
     }
+    /* Adjust headings color */
+    h1, h2, h3, h4, h5, h6 {
+        color: #FFFFFF;
+    }
+    /* Sidebar styling */
+    .css-1d391kg {
+        background-color: #1E1E1E;
+    }
+    /* Option menu styling */
+    .nav-link {
+        color: #FFFFFF !important;
+    }
+    .nav-link:hover {
+        background-color: #333333 !important;
+    }
+    /* Button styling */
+    .stButton > button {
+        background-color: #333333;
+        color: #FFFFFF;
+    }
+    .stButton > button:hover {
+        background-color: #555555;
+        color: #FFFFFF;
+    }
+    /* Input fields */
+    .stTextInput > div > div > input {
+        background-color: #333333;
+        color: #FFFFFF;
+    }
+    .stTextArea > div > textarea {
+        background-color: #333333;
+        color: #FFFFFF;
+    }
+    /* Tabs styling */
+    .stTabs [data-baseweb="tab"] {
+        background-color: #1E1E1E;
+        color: #FFFFFF;
+    }
+    .stTabs [data-baseweb="tab"]:hover {
+        background-color: #333333;
+        color: #FFFFFF;
+    }
+    /* Remove padding around main content */
     .css-18e3th9 {
         padding: 0;
     }
