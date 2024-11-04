@@ -229,34 +229,27 @@ elif selected == "Projects":
 
 # Contact Page
 elif selected == "Contact":
-    st.markdown("## 📬 Contact")
-    st.write("Feel free to reach out by filling the form below:")
+st.markdown("## 📬 Contact")
+st.write("Fill out the form below to send me a message:")
 
-    # Contact Form
-    with st.form(key='contact_form'):
-        name = st.text_input("Your Name")
-        email = st.text_input("Your Email")
-        message = st.text_area("Message")
-        submit_button = st.form_submit_button(label='Submit')
+# Contact Form HTML
+contact_form = """
+<form action="https://formsubmit.co/798ca3aac81c91f8fe69bfb3b6fcada0" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <label for="name">Name</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <label for="message">Message</label><br>
+    <textarea id="message" name="message" rows="4" required></textarea><br><br>
+    
+    <button type="submit">Send</button>
+</form>
+"""
 
-    if submit_button:
-        if name and email and message:
-            st.success(f"Thank you {name}! Your message has been sent.")
-
-            # Hidden FormSubmit form
-            st.markdown(f"""
-                <form action="https://formsubmit.co/798ca3aac81c91f8fe69bfb3b6fcada0" method="POST" id="fs-frm">
-                    <input type="hidden" name="_subject" value="New contact form submission from {name}">
-                    <input type="hidden" name="name" value="{name}">
-                    <input type="hidden" name="email" value="{email}">
-                    <input type="hidden" name="message" value="{message}">
-                </form>
-                <script>
-                    document.getElementById('fs-frm').submit();
-                </script>
-                """, unsafe_allow_html=True)
-        else:
-            st.error("Please fill out all fields.")
+st.markdown(contact_form, unsafe_allow_html=True)
 
 # Footer
 st.markdown("---")
