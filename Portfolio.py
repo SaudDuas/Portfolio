@@ -229,27 +229,27 @@ elif selected == "Projects":
 
 # Contact Page
 elif selected == "Contact":
+          
+# Contact Page
             st.markdown("## 📬 Contact")
             st.write("Fill out the form below to send me a message:")
             
-            # Contact Form HTML
+            # Contact Form HTML with unsafe_allow_html=True
             contact_form = """
             <form action="https://formsubmit.co/798ca3aac81c91f8fe69bfb3b6fcada0" method="POST">
-                <input type="hidden" name="_captcha" value="false">
-                <label for="name">Name</label><br>
-                <input type="text" id="name" name="name" required><br><br>
-                
-                <label for="email">Email</label><br>
-                <input type="email" id="email" name="email" required><br><br>
-                
-                <label for="message">Message</label><br>
-                <textarea id="message" name="message" rows="4" required></textarea><br><br>
-                
-                <button type="submit">Send</button>
+               <input type="hidden" name="_captcha" value="false">
+               <label for="name">Name</label><br>
+               <input type="text" id="name" name="name" required><br><br>
+               
+               <label for="email">Email</label><br>
+               <input type="email" id="email" name="email" required><br><br>
+               
+               <label for="message">Message</label><br>
+               <textarea id="message" name="message" rows="4" required></textarea><br><br>
+               
+               <button type="submit">Send</button>
             </form>
             """
-            
-            st.markdown(contact_form, unsafe_allow_html=True)
 
 # Footer
 st.markdown("---")
