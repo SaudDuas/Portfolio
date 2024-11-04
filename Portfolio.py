@@ -108,6 +108,7 @@ if selected == "Home":
     # Profile Picture
     profile_pic = Image.open("profile_picture.jpg")  # Replace with your profile picture
     st.image(profile_pic, width=200)
+    st.markdown("[Download Resume](SALOTAIBI_C.pdf)", unsafe_allow_html=True)  # Replace with your resume path
 
 # Experience Page
 elif selected == "Experience":
