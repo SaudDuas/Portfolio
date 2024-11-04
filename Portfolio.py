@@ -108,7 +108,14 @@ if selected == "Home":
     # Profile Picture
     profile_pic = Image.open("pic1.webp")  # Replace with your profile picture
     st.image(profile_pic, width=200)
-    st.markdown("[Download Resume](SALOTAIBI_C.pdf)", unsafe_allow_html=True)  # Replace with your resume path
+    with open("SALOTAIBI_C.pdf", "rb") as file:
+                btn = st.download_button(
+                    label="Download Resume",
+                    data=file,
+                    file_name="SALOTAIBI_C.pdf",
+                    mime="application/pdf"
+                )
+
 
 # Experience Page
 elif selected == "Experience":
