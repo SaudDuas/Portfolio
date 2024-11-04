@@ -106,7 +106,7 @@ if selected == "Home":
     """)
     
     # Profile Picture
-    profile_pic = Image.open("pic1.webp")  # Replace with your profile picture
+    profile_pic = Image.open("cv_pic.png")  # Replace with your profile picture
     st.image(profile_pic, width=200)
     with open("SALOTAIBI_C.pdf", "rb") as file:
                 btn = st.download_button(
@@ -229,34 +229,38 @@ elif selected == "Projects":
 
 # Contact Page
 elif selected == "Contact":
-          
-# Contact Page
-         
-# Custom CSS for improved UI
+
+# Enhanced Custom CSS for Modern Contact Form
             st.markdown("""
                 <style>
-                /* Center the contact form */
                 .contact-container {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    flex-direction: column;
-                    color: #FFFFFF;
                     background-color: #1E1E1E;
                     padding: 40px;
                     border-radius: 10px;
                     max-width: 600px;
                     margin: auto;
-                }
-            
-                /* Form elements */
-                label {
-                    font-size: 16px;
-                    font-weight: bold;
                     color: #FFFFFF;
-                    margin-bottom: 8px;
+                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
                 }
-            
+                .contact-container h2 {
+                    font-size: 28px;
+                    font-weight: bold;
+                    color: #6C63FF;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+                .contact-container p {
+                    color: #CCCCCC;
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+                label {
+                    font-size: 15px;
+                    color: #FFFFFF;
+                    font-weight: bold;
+                    display: block;
+                    margin-bottom: 5px;
+                }
                 input[type="text"], input[type="email"], textarea {
                     width: 100%;
                     padding: 10px;
@@ -267,15 +271,10 @@ elif selected == "Contact":
                     color: #FFFFFF;
                     font-size: 15px;
                 }
-            
-                /* Input and textarea focus effect */
                 input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
                     border-color: #6C63FF;
                     outline: none;
-                    box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
                 }
-            
-                /* Submit button styling */
                 button[type="submit"] {
                     background-color: #6C63FF;
                     color: #FFFFFF;
@@ -285,37 +284,22 @@ elif selected == "Contact":
                     font-weight: bold;
                     border-radius: 5px;
                     cursor: pointer;
+                    width: 100%;
                 }
-            
                 button[type="submit"]:hover {
                     background-color: #8a85ff;
-                    color: #ffffff;
-                }
-            
-                /* Contact header styling */
-                .contact-header {
-                    font-size: 28px;
-                    font-weight: bold;
-                    color: #6C63FF;
-                    margin-bottom: 10px;
-                }
-            
-                /* Description styling */
-                .contact-description {
-                    color: #CCCCCC;
-                    margin-bottom: 20px;
                 }
                 </style>
                 """, unsafe_allow_html=True)
             
-            # Contact Page Layout
+            # Display Contact Form Container
             st.markdown('<div class="contact-container">', unsafe_allow_html=True)
-            st.markdown('<div class="contact-header">📬 Contact</div>', unsafe_allow_html=True)
-            st.markdown('<p class="contact-description">Fill out the form below to send me a message:</p>', unsafe_allow_html=True)
+            st.markdown('<h2>📬 Contact</h2>', unsafe_allow_html=True)
+            st.markdown('<p>Fill out the form below to send me a message:</p>', unsafe_allow_html=True)
             
             # HTML Contact Form
             contact_form = """
-            <form action="https://formsubmit.co/your-email@example.com" method="POST">
+            <form action="https://formsubmit.co/798ca3aac81c91f8fe69bfb3b6fcada0" method="POST">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
                 
@@ -329,9 +313,10 @@ elif selected == "Contact":
             </form>
             """
             
-            # Render the contact form
+            # Render the Contact Form
             st.markdown(contact_form, unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
+
             
 
 
