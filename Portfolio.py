@@ -231,26 +231,108 @@ elif selected == "Projects":
 elif selected == "Contact":
           
 # Contact Page
-            st.markdown("## 📬 Contact")
-            st.write("Fill out the form below to send me a message:")
+         
+# Custom CSS for improved UI
+            st.markdown("""
+                <style>
+                /* Center the contact form */
+                .contact-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    color: #FFFFFF;
+                    background-color: #1E1E1E;
+                    padding: 40px;
+                    border-radius: 10px;
+                    max-width: 600px;
+                    margin: auto;
+                }
             
-            # Contact Form HTML with unsafe_allow_html=True
+                /* Form elements */
+                label {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #FFFFFF;
+                    margin-bottom: 8px;
+                }
+            
+                input[type="text"], input[type="email"], textarea {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 20px;
+                    background-color: #333333;
+                    border: 1px solid #444444;
+                    border-radius: 5px;
+                    color: #FFFFFF;
+                    font-size: 15px;
+                }
+            
+                /* Input and textarea focus effect */
+                input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+                    border-color: #6C63FF;
+                    outline: none;
+                    box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+                }
+            
+                /* Submit button styling */
+                button[type="submit"] {
+                    background-color: #6C63FF;
+                    color: #FFFFFF;
+                    border: none;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            
+                button[type="submit"]:hover {
+                    background-color: #8a85ff;
+                    color: #ffffff;
+                }
+            
+                /* Contact header styling */
+                .contact-header {
+                    font-size: 28px;
+                    font-weight: bold;
+                    color: #6C63FF;
+                    margin-bottom: 10px;
+                }
+            
+                /* Description styling */
+                .contact-description {
+                    color: #CCCCCC;
+                    margin-bottom: 20px;
+                }
+                </style>
+                """, unsafe_allow_html=True)
+            
+            # Contact Page Layout
+            st.markdown('<div class="contact-container">', unsafe_allow_html=True)
+            st.markdown('<div class="contact-header">📬 Contact</div>', unsafe_allow_html=True)
+            st.markdown('<p class="contact-description">Fill out the form below to send me a message:</p>', unsafe_allow_html=True)
+            
+            # HTML Contact Form
             contact_form = """
-            <form action="https://formsubmit.co/798ca3aac81c91f8fe69bfb3b6fcada0" method="POST">
-               <input type="hidden" name="_captcha" value="false">
-               <label for="name">Name</label><br>
-               <input type="text" id="name" name="name" required><br><br>
-               
-               <label for="email">Email</label><br>
-               <input type="email" id="email" name="email" required><br><br>
-               
-               <label for="message">Message</label><br>
-               <textarea id="message" name="message" rows="4" required></textarea><br><br>
-               
-               <button type="submit">Send</button>
+            <form action="https://formsubmit.co/your-email@example.com" method="POST">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <button type="submit">Send</button>
             </form>
             """
+            
+            # Render the contact form
             st.markdown(contact_form, unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
+            
 
 
 # Footer
