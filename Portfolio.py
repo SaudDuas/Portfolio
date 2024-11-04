@@ -214,7 +214,7 @@ elif selected == "Projects":
     st.write("""
     Developed a trading bot to analyze the US stock market, providing daily buy/sell recommendations with high accuracy.
     """)
-    st.image("trading_bot_image.jpg", caption="Trading Bot Project", use_column_width=True)
+    st.image("trading_bot.png", caption="Trading Bot Project", use_column_width=True)
     if st.button("More Details", key="project1"):
         st.write("Detailed description of the Trading Bot project.")
     
