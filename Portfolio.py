@@ -250,6 +250,8 @@ elif selected == "Contact":
                <button type="submit">Send</button>
             </form>
             """
+            st.markdown(contact_form, unsafe_allow_html=True)
+
 
 # Footer
 st.markdown("---")
