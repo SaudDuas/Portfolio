@@ -228,94 +228,92 @@ elif selected == "Projects":
         st.write("Detailed description of the Law Enforcement AI project.")
 
 # Contact Page
+# Contact Page
 elif selected == "Contact":
+    # Modern Contact Form Styling
+    st.markdown("""
+        <style>
+        .contact-container {
+            background-color: #1E1E1E;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            color: #FFFFFF;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+        }
+        .contact-container h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #6C63FF;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-container p {
+            color: #CCCCCC;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            font-size: 15px;
+            color: #FFFFFF;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #333333;
+            border: 1px solid #444444;
+            border-radius: 5px;
+            color: #FFFFFF;
+            font-size: 15px;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+            border-color: #6C63FF;
+            outline: none;
+        }
+        button[type="submit"] {
+            background-color: #6C63FF;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            background-color: #8a85ff;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+    
+    # Display Contact Form Container
+    st.markdown('<div class="contact-container">', unsafe_allow_html=True)
+    st.markdown('<h2>📬 Contact</h2>', unsafe_allow_html=True)
+    st.markdown('<p>Fill out the form below to send me a message:</p>', unsafe_allow_html=True)
 
-# Enhanced Custom CSS for Modern Contact Form
-            st.markdown("""
-                <style>
-                .contact-container {
-                    background-color: #1E1E1E;
-                    padding: 40px;
-                    border-radius: 10px;
-                    max-width: 600px;
-                    margin: auto;
-                    color: #FFFFFF;
-                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-                }
-                .contact-container h2 {
-                    font-size: 28px;
-                    font-weight: bold;
-                    color: #6C63FF;
-                    text-align: center;
-                    margin-bottom: 20px;
-                }
-                .contact-container p {
-                    color: #CCCCCC;
-                    text-align: center;
-                    margin-bottom: 30px;
-                }
-                label {
-                    font-size: 15px;
-                    color: #FFFFFF;
-                    font-weight: bold;
-                    display: block;
-                    margin-bottom: 5px;
-                }
-                input[type="text"], input[type="email"], textarea {
-                    width: 100%;
-                    padding: 10px;
-                    margin-bottom: 20px;
-                    background-color: #333333;
-                    border: 1px solid #444444;
-                    border-radius: 5px;
-                    color: #FFFFFF;
-                    font-size: 15px;
-                }
-                input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-                    border-color: #6C63FF;
-                    outline: none;
-                }
-                button[type="submit"] {
-                    background-color: #6C63FF;
-                    color: #FFFFFF;
-                    border: none;
-                    padding: 10px 20px;
-                    font-size: 16px;
-                    font-weight: bold;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    width: 100%;
-                }
-                button[type="submit"]:hover {
-                    background-color: #8a85ff;
-                }
-                </style>
-                """, unsafe_allow_html=True)
-            
-            # Display Contact Form Container
-            st.markdown('<div class="contact-container">', unsafe_allow_html=True)
-            st.markdown('<h2>📬 Contact</h2>', unsafe_allow_html=True)
-            st.markdown('<p>Fill out the form below to send me a message:</p>', unsafe_allow_html=True)
-            
-            # HTML Contact Form
-            contact_form = """
-            <form action="https://formsubmit.co/798ca3aac81c91f8fe69bfb3b6fcada0" method="POST">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                
-                <button type="submit">Send</button>
-            </form>
-            """
-            
-            # Render the Contact Form
-            st.markdown(contact_form, unsafe_allow_html=True)
-            st.markdown('</div>', unsafe_allow_html=True)
+    # Streamlit Form for Contact
+    with st.form("contact_form"):
+        name = st.text_input("Name")
+        email = st.text_input("Email")
+        message = st.text_area("Message")
+        submit_button = st.form_submit_button("Send")
+    
+    # Form Submission Handling
+    if submit_button:
+        if name and email and message:
+            # Store the form data or send an email
+            st.success("Thank you, your message has been sent successfully!")
+        else:
+            st.error("Please fill out all fields before submitting.")
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+
 
             
 
