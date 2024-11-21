@@ -206,7 +206,7 @@ elif selected == "Skills":
     """)
 
 # Projects Page
-''' elif selected == "Projects":
+elif selected == "Projects":
     st.markdown("## 🚀 Projects")
     
     # Trading Bot Project
@@ -225,7 +225,7 @@ elif selected == "Skills":
     """)
     st.image("law_enforcement_image.jpg", caption="AI-Driven Solutions for Law Enforcement", use_column_width=True)
     if st.button("More Details", key="project2"):
-        st.write("Detailed description of the Law Enforcement AI project.")'''
+        st.write("Detailed description of the Law Enforcement AI project.")
 
 # Contact Page
 # Contact Page
